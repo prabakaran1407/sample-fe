@@ -1,0 +1,23 @@
+.slide-in-text-container {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    /* background-color: #ffcccc; */
+}
+
+.slide-in-text {
+    animation: slideIn 10s linear infinite;
+    color:#ff0000;
+    width:80%
+    
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}

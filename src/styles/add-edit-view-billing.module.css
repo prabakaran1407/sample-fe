@@ -1,0 +1,16 @@
+table {
+    padding: 15px;
+    width: 100%;
+    height: 'auto';
+    border-collapse: collapse;
+    border-radius: 10px;
+    border: 3px solid whitesmoke;
+    font-family: 'Poppins';
+    border-radius: 15px;
+  }
+
+thead {
+    font-weight: 200;
+    font-size: 15px;
+    text-align: center;
+}

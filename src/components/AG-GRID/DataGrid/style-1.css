@@ -1,0 +1,57 @@
+.ag-root-wrapper {
+  border-radius: 10px;
+}
+
+.ag-theme-alpine {
+  /* disable all borders */
+  --ag-borders: none;
+  /* then add back a border between rows */
+  --ag-row-border-bottom-style: 2px solid whitesmoke;
+  /* --ag-row-border-width: 2px; */
+  /* --ag-row-border-color: rgb(150, 150, 200); */
+}
+
+.ag-cell[col-id="0"] {
+  /* text-align: center !important; */
+  display: flex;
+  justify-content: center;
+}
+.ag-header-cell[col-id="0"] {
+  text-align: center !important;
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+}
+.ag-cell[col-id="0"] .action-icons-container,
+.ag-header-cell[col-id="0"] .action-icons-container {
+  margin-right: 8px; /* Adjust the right margin for spacing between icons */
+}
+.ag-header-cell[col-id="0"] .ag-header-cell-label {
+  justify-content: center !important;
+}
+/* .ag-header-cell-label {
+  justify-content: center;
+}
+.ag-cell {
+  display: flex;
+  justify-content: center;
+} */
+
+.ag-cell-focus,
+.ag-cell-no-focus {
+  border: none !important;
+}
+
+/* This CSS is to not apply the border for the column having 'no-border' class */
+.no-border.ag-cell:focus {
+  border: none !important;
+  outline: none;
+}
+
+.ag-theme-alpine .ag-row-selected {
+  background-color: #ff4aba;
+}
+
+.ag-theme-alpine .ag-ltr .ag-cell-focus {
+  border: 1px solid red;
+}

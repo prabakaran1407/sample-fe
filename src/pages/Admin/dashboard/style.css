@@ -1,0 +1,14 @@
+.carousel-container {
+    display: flex;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+    position: relative;
+}
+
+.carousel-card {
+    flex: 2 2 2;
+}
+
+.active {
+    transform: translateX(0);
+}

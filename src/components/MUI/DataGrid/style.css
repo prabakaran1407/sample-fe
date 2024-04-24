@@ -1,0 +1,69 @@
+/** @format */
+
+.ag-theme-alpine {
+  /* --ag-foreground-color: rgb(126, 46, 132); */
+  /* --ag-background-color: rgb(209, 64, 129); */
+  --ag-header-foreground-color: rgb(126, 46, 132);
+  /* --ag-header-background-color: rgb(209, 64, 129); */
+  --ag-odd-row-background-color: rgb(0, 0, 0, 0.03);
+  /* --ag-header-column-resize-handle-color: rgb(126, 46, 132); */
+  /* --ag-row-border-color: rgb(209, 64, 129); */
+  --ag-font-size: 14px;
+  --ag-font-family: monospace;
+  /* row */
+  --ag-grid-size: 10px;
+  --ag-border-color: #757575;
+  --ag--border-width: 10px;
+  /* --ag-list-item-height: 40px; */
+  --ag-selected-row-background-color: rgb(0, 255, 0, 0.1);
+
+  /* header */
+  /* --ag-header-height: 5px; */
+  /* --ag-header-foreground-color: white; */
+  --ag-header-background-color: #fafafa;
+  /* --ag-header-cell-hover-background-color: rgb(80, 40, 140); */
+  --ag-header-cell-moving-background-color: rgb(80, 40, 140);
+
+  --ag-header-column-separator-display: none;
+  --ag-header-column-separator-height: 100%;
+  --ag-header-column-separator-width: 2px;
+  --ag-header-column-separator-color: purple;
+
+  --ag-header-column-resize-handle-display: none;
+  --ag-header-column-resize-handle-height: 25%;
+  --ag-header-column-resize-handle-width: 5px;
+  --ag-header-column-resize-handle-color: orange;
+
+  /* border */
+  /* --ag-borders: none;
+  /* --ag-row-border-style: dashed; */
+  --ag-row-border-width: 1px;
+  --ag-row-border-color: #e0e0e0;
+}
+
+/* .ag-theme-alpine .ag-header {
+  font-family: cursive;
+} */
+.ag-theme-alpine .ag-header-group-cell {
+  font-weight: bold;
+  font-size: 20px;
+}
+.ag-theme-alpine .ag-header-cell {
+  font-size: 20px;
+}
+
+/* .ag-theme-alpine .ag-header-container {
+  background: '#000000';
+  color: '#fff';
+} */
+
+.ag-cell-focus,
+.ag-cell-no-focus {
+  border: none !important;
+}
+
+/* This CSS is to not apply the border for the column having 'no-border' class */
+.no-border.ag-cell:focus {
+  border: none !important;
+  outline: none;
+}

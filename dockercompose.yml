@@ -1,0 +1,7 @@
+version: "3.1"
+services:
+         sales10x-fe:
+         image: 302220238753.dkr.ecr.us-east-1.amazonaws.com/sales10x-fe:latest
+         restart: always
+         ports:
+         - 80:80

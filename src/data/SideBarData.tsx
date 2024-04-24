@@ -1,0 +1,487 @@
+/** @format */
+
+//  ******************** MUI Icons
+import InventoryOutlinedIcon from "@mui/icons-material/InventoryOutlined";
+import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
+import ChecklistOutlinedIcon from "@mui/icons-material/ChecklistOutlined";
+import TaskIcon from "@mui/icons-material/Task";
+import BusinessIcon from "@mui/icons-material/Business";
+import {
+  AccountBalanceWalletRounded,
+  CorporateFareRounded,
+  FiberManualRecordRounded,
+  People,
+  PersonPinCircle,
+  WidgetsRounded,
+  Article,
+  DirectionsOutlined,
+  GpsFixed,
+  ShoppingBasket,
+  // AssignmentTurnedInOutlined,
+  Store,
+} from "@mui/icons-material";
+import PhonelinkSetupIcon from "@mui/icons-material/PhonelinkSetup";
+import InstallMobileRoundedIcon from "@mui/icons-material/InstallMobileRounded";
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+
+// *************** AppConst
+import { APP_ROUTES } from "./AppRoutes";
+import RequestPageIcon from "@mui/icons-material/RequestPage";
+import {
+  ADMIN_SIDE_MENU_KEYS,
+  SUPERADMIN_SIDE_MENU_KEYS,
+  DEFAULT_MODULE,
+} from "./AppModules.tsx";
+
+// *********** utils
+import { RANDOM_UNIQUE_STR } from "../utils/getUnique";
+import TimelineIcon from "@mui/icons-material/Timeline";
+
+export const SIDE_MENU_TITLE = [
+  "Dashboard",
+  "Organization Details",
+  "Billing Details",
+  "Request Details",
+  "Modules",
+  "Audit Log",
+  "Leave Management",
+  "Attendance",
+  "User Tracking",
+  "Claim Management",
+  "MDM",
+  "Task Management",
+  "Visit Management",
+  "Sales Management",
+  "MDM Master",
+  "Collections",
+  "Reports",
+  "User Activity",
+  "Trip Planner",
+  "Live Tracking",
+  "Order Management",
+  "Ticket Management",
+  "Inventory Management",
+];
+
+export const SideBarMenuItems = (auth: Record<string, any>) => {
+  const isSuperAdmin = auth?.data?.userRecord?.isSuperAdmin;
+  return [
+    {
+      title: SIDE_MENU_TITLE[0],
+      icon: <WidgetsRounded style={{ fontSize: 22 }} />,
+      path: isSuperAdmin
+        ? APP_ROUTES?.SUPER_ADMIN?.DASHBOARD?.pathName
+        : APP_ROUTES?.ADMIN?.DASHBOARD?.pathName,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      // module: isSuperAdmin ? SUPERADMIN_SIDE_MENU_KEYS[0] : ADMIN_SIDE_MENU_KEYS[0]
+      module: DEFAULT_MODULE,
+    },
+    {
+      title: SIDE_MENU_TITLE[1],
+      icon: <CorporateFareRounded style={{ fontSize: 22 }} />,
+      path: APP_ROUTES?.SUPER_ADMIN?.ORGANIZATION?.pathName,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      module: SUPERADMIN_SIDE_MENU_KEYS[1],
+      // submenu: [
+      //   {
+      //     title: 'Paid Details',
+      //     icon: <FiberManualRecordRoundedIcon style={{ fontSize: 8 }} />,
+      //     path: APP_ROUTES?.SUPER_ADMIN?.PAID_DETAILS?.pathName,
+      //     can_access: true,
+      //   },
+      //   {
+      //     title: 'Trial Details',
+      //     icon: <FiberManualRecordRoundedIcon style={{ fontSize: 8 }} />,
+      //     path: APP_ROUTES?.SUPER_ADMIN?.TRIAL_DETAILS?.pathName,
+      //     can_access: true,
+      //   },
+      // ],
+    },
+    // {
+    //   title: SIDE_MENU_TITLE[2],
+    //   icon: <PaymentsOutlinedIcon style={{ fontSize: 22 }} />,
+    //   path: APP_ROUTES?.SUPER_ADMIN?.BILLING_DETAILS?.pathName,
+    //   can_access: true,
+    //   id: RANDOM_UNIQUE_STR(),
+    //   isActive: false,
+    // },
+    {
+      title: SIDE_MENU_TITLE[3],
+      icon: <DescriptionOutlinedIcon style={{ fontSize: 22 }} />,
+      path: APP_ROUTES?.SUPER_ADMIN?.REQUEST_DETAILS?.pathName,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      module: SUPERADMIN_SIDE_MENU_KEYS[2],
+    },
+
+    {
+      title: SIDE_MENU_TITLE[4],
+      icon: <ChecklistOutlinedIcon style={{ fontSize: 22 }} />,
+      path: APP_ROUTES?.SUPER_ADMIN?.MODULES?.LIST?.pathName,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      module: SUPERADMIN_SIDE_MENU_KEYS[3],
+    },
+    {
+      title: SIDE_MENU_TITLE[14],
+      icon: <PhonelinkSetupIcon style={{ fontSize: 22 }} />,
+      path: APP_ROUTES?.SUPER_ADMIN?.MDM?.ENTERPRISES,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      module: SUPERADMIN_SIDE_MENU_KEYS[4],
+      submenu: [
+        {
+          title: "Enterprises",
+          icon: <FiberManualRecordRounded style={{ fontSize: 8 }} />,
+          path: APP_ROUTES?.SUPER_ADMIN?.MDM?.ENTERPRISES?.pathName,
+          can_access: true,
+        },
+        // {
+        //   title: "Policy",
+        //   icon: <FiberManualRecordRounded style={{ fontSize: 8 }} />,
+        //   path: APP_ROUTES?.SUPER_ADMIN?.MDM?.POLICY?.pathName,
+        //   can_access: true,
+        // },
+        {
+          title: "Mapping",
+          icon: <FiberManualRecordRounded style={{ fontSize: 8 }} />,
+          path: APP_ROUTES?.SUPER_ADMIN?.MDM?.MAPPING?.pathName,
+          can_access: true,
+        },
+      ],
+    },
+    // {
+    //   title: SIDE_MENU_TITLE[5],
+    //   icon: <InventoryOutlinedIcon style={{ fontSize: 22 }} />,
+    //   path: APP_ROUTES?.SUPER_ADMIN?.AUDIT_LOG?.pathName,
+    //   can_access: true,
+    //   id: RANDOM_UNIQUE_STR(),
+    //   isActive: false,
+    // },
+    // {
+    //   title: SIDE_MENU_TITLE[6],
+    //   icon: <InventoryOutlinedIcon style={{ fontSize: 22 }} />,
+    //   path: APP_ROUTES?.ADMIN?.LEAVE_MANAGEMENT?.pathName,
+    //   can_access: true,
+    // },
+    {
+      title: SIDE_MENU_TITLE[7],
+      icon: <People style={{ fontSize: 22 }} />,
+      path: APP_ROUTES?.ADMIN?.ATTENDANCE_MANAGEMENT,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      submenu: [
+        {
+          title: "Attendance",
+          icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+          path: APP_ROUTES?.ADMIN?.ATTENDANCE_MANAGEMENT?.pathName,
+          can_access: true,
+          id: RANDOM_UNIQUE_STR(),
+          isActive: false,
+        },
+        {
+          title: "Leave Request",
+          icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+          path: APP_ROUTES?.ADMIN?.LEAVE_MANAGEMENT?.pathName,
+          can_access: true,
+          id: RANDOM_UNIQUE_STR(),
+          isActive: false,
+        },
+      ],
+      module: ADMIN_SIDE_MENU_KEYS[1],
+    },
+    {
+      title: SIDE_MENU_TITLE[8],
+      icon: <PersonPinCircle style={{ fontSize: 22 }} />,
+      path: APP_ROUTES?.ADMIN?.USERTRACKING?.pathName,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      module: ADMIN_SIDE_MENU_KEYS[2],
+    },
+    {
+      title: SIDE_MENU_TITLE[11],
+      icon: <TaskIcon style={{ fontSize: 22 }} />,
+      path: APP_ROUTES?.ADMIN?.TASK_MANAGEMENT?.pathName,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      module: ADMIN_SIDE_MENU_KEYS[3],
+    },
+
+    {
+      title: "Claim Management",
+      icon: <AccountBalanceWalletRounded style={{ fontSize: 22 }} />,
+      path: APP_ROUTES?.ADMIN?.CLAIM_MANAGEMENT?.pathName,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      module: ADMIN_SIDE_MENU_KEYS[4],
+      // submenu: [
+      //   {
+      //     title: ' Claim Management View',
+      //     icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+      //     path: APP_ROUTES?.ADMIN?.CLAIM_MANAGEMENT?.pathName,
+      //     can_access: true,
+      //   },
+      //   {
+      //     title: 'Reviewed Claims',
+      //     icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+      //     path: APP_ROUTES?.ADMIN?.CLAIM_MANAGEMENT?.REVIEWED_CLAIM?.pathName,
+      //     can_access: true,
+      //   },
+      //   {
+      //     title: 'Rejected Claims',
+      //     icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+      //     path: APP_ROUTES?.ADMIN?.CLAIM_MANAGEMENT?.REJECTED_CLAIM?.pathName,
+      //     can_access: true,
+      //   },
+      // ],
+    },
+    {
+      title: "Sales Management",
+      icon: <SupportAgentIcon style={{ fontSize: 22 }} />,
+      path: APP_ROUTES?.ADMIN?.SALES_MANAGEMENT,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      submenu: [
+        {
+          title: "Primary",
+          icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+          path: APP_ROUTES?.ADMIN?.SALES_MANAGEMENT?.PRIMARY?.pathName,
+          can_access: true,
+          id: RANDOM_UNIQUE_STR(),
+          isActive: false,
+        },
+        {
+          title: "Secondary",
+          icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+          path: APP_ROUTES?.ADMIN?.SALES_MANAGEMENT?.SECONDARY?.pathName,
+          can_access: true,
+          id: RANDOM_UNIQUE_STR(),
+          isActive: false,
+        },
+        // {
+        //   title: "Create Target",
+        //   icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+        //   path: APP_ROUTES?.ADMIN?.SALES_MANAGEMENT?.TARGET?.pathName,
+        //   can_access: true,
+        //   id: RANDOM_UNIQUE_STR(),
+        //   isActive: false,
+        // },
+        {
+          title: "Target",
+          icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+          path: APP_ROUTES?.ADMIN?.SALES_MANAGEMENT?.VIEW_TARGET?.pathName,
+          can_access: true,
+          id: RANDOM_UNIQUE_STR(),
+          isActive: false,
+        },
+        {
+          title: "Forecasting",
+          icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+          path: APP_ROUTES?.ADMIN?.SALES_MANAGEMENT?.FORECASTING?.pathName,
+          can_access: true,
+          id: RANDOM_UNIQUE_STR(),
+          isActive: false,
+        },
+        {
+          title: "Customer Stock",
+          icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+          path: APP_ROUTES?.ADMIN?.SALES_MANAGEMENT?.CUSUTOMER_STOCK?.pathName,
+          can_access: true,
+          id: RANDOM_UNIQUE_STR(),
+          isActive: false,
+        },
+      ],
+      module: ADMIN_SIDE_MENU_KEYS[5],
+    },
+    {
+      title: SIDE_MENU_TITLE[20],
+      icon: <ShoppingBasket style={{ fontSize: 22 }} />,
+      // path: APP_ROUTES?.ADMIN?.ORDER_MANAGEMENT,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      submenu: [
+        {
+          title: "Primary",
+          icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+          path: APP_ROUTES?.ADMIN?.ORDER_MANAGEMENT?.PRIMARY?.pathName,
+          can_access: true,
+          id: RANDOM_UNIQUE_STR(),
+          isActive: false,
+        },
+        {
+          title: "Secondary",
+          icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+          path: APP_ROUTES?.ADMIN?.ORDER_MANAGEMENT?.SECONDARY?.pathName,
+          can_access: true,
+          id: RANDOM_UNIQUE_STR(),
+          isActive: false,
+        },
+      ],
+      module: ADMIN_SIDE_MENU_KEYS[29],
+    },
+    // {
+    //   title: SIDE_MENU_TITLE[21],
+    //   icon: <AssignmentTurnedInOutlined style={{ fontSize: 22 }} />,
+    //   path: APP_ROUTES?.ADMIN?.TICKET_MANAGEMENT?.pathName,
+    //   can_access: true,
+    //   id: RANDOM_UNIQUE_STR(),
+    //   isActive: false,
+    //   module: ADMIN_SIDE_MENU_KEYS[34],
+    // },
+    {
+      title: "Visit Management",
+      icon: <InventoryOutlinedIcon style={{ fontSize: 22 }} />,
+      path: APP_ROUTES?.ADMIN?.VISIT_MANAGEMENT?.pathName,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      module: ADMIN_SIDE_MENU_KEYS[11],
+    },
+    {
+      title: "Lead Management",
+      icon: <BusinessIcon style={{ fontSize: 22 }} />,
+      path: APP_ROUTES?.ADMIN?.CRM?.LEADMANAGEMENT?.pathName,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      module: ADMIN_SIDE_MENU_KEYS[12],
+      // submenu: [
+      //   {
+      //     title: 'Lead Management',
+      //     icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+      //     path: APP_ROUTES?.ADMIN?.CRM?.LEADMANAGEMENT?.pathName,
+      //     can_access: true,
+      //   },
+      // ],
+    },
+    {
+      title: SIDE_MENU_TITLE[15],
+      icon: <RequestPageIcon style={{ fontSize: 22 }} />,
+      path: APP_ROUTES?.ADMIN?.COLLECTIONS.pathname,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      submenu: [
+        {
+          title: "Collection Report",
+          icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+          path: APP_ROUTES?.ADMIN?.COLLECTIONS?.pathName,
+          can_access: true,
+          id: RANDOM_UNIQUE_STR(),
+          isActive: false,
+        },
+        {
+          title: "Outstanding",
+          icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+          path: APP_ROUTES?.ADMIN?.COLLECTIONS?.OUTSTANDING?.pathName,
+          can_access: true,
+          id: RANDOM_UNIQUE_STR(),
+          isActive: false,
+        },
+      ],
+      module: ADMIN_SIDE_MENU_KEYS[13],
+    },
+    {
+      title: SIDE_MENU_TITLE[17],
+      icon: <TimelineIcon style={{ fontSize: 22 }} />,
+      path: APP_ROUTES?.ADMIN?.USERACTIVITY?.pathName,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      // module: ADMIN_SIDE_MENU_KEYS[16]
+      module: DEFAULT_MODULE,
+    },
+    {
+      title: SIDE_MENU_TITLE[18],
+      icon: <DirectionsOutlined style={{ fontSize: 22 }} />,
+      path: APP_ROUTES?.ADMIN?.TRIP_PLANNER?.pathName,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      module: ADMIN_SIDE_MENU_KEYS[17],
+    },
+    {
+      title: SIDE_MENU_TITLE[10],
+      icon: <InstallMobileRoundedIcon style={{ fontSize: 22 }} />,
+      path: "",
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      submenu: [
+        {
+          title: "Enterprise",
+          icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+          path: APP_ROUTES?.ADMIN?.MDM?.ENTERPRISES?.pathName,
+          can_access: true,
+          id: RANDOM_UNIQUE_STR(),
+          isActive: false,
+        },
+        {
+          title: "Policies",
+          icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+          path: APP_ROUTES?.ADMIN?.MDM?.POLICIES?.pathName,
+          can_access: true,
+          id: RANDOM_UNIQUE_STR(),
+          isActive: false,
+        },
+        {
+          title: "Device Enrollment",
+          icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+          path: APP_ROUTES?.ADMIN?.MDM?.DEVICE_ENROLLMENT?.pathName,
+          can_access: true,
+          id: RANDOM_UNIQUE_STR(),
+          isActive: false,
+        },
+        {
+          title: "Enrolled Devices",
+          icon: <FiberManualRecordRounded style={{ fontSize: 6 }} />,
+          path: APP_ROUTES?.ADMIN?.MDM?.ENROLLED_DEVICES?.pathName,
+          can_access: true,
+          id: RANDOM_UNIQUE_STR(),
+          isActive: false,
+        },
+      ],
+      module: ADMIN_SIDE_MENU_KEYS[18],
+    },
+    {
+      title: SIDE_MENU_TITLE[16],
+      icon: <Article style={{ fontSize: 22 }} />,
+      path: APP_ROUTES?.ADMIN?.REPORTS?.pathName,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      module: ADMIN_SIDE_MENU_KEYS[23],
+    },
+    {
+      title: SIDE_MENU_TITLE[19],
+      icon: <GpsFixed style={{ fontSize: 22 }} />,
+      path: APP_ROUTES?.ADMIN?.LIVETRACKING?.pathName,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      module: ADMIN_SIDE_MENU_KEYS[24],
+    },
+    {
+      title: SIDE_MENU_TITLE[22],
+      icon: <Store style={{ fontSize: 22 }} />,
+      path: APP_ROUTES?.ADMIN?.INVENTORYMANAGEMENT?.pathName,
+      can_access: true,
+      id: RANDOM_UNIQUE_STR(),
+      isActive: false,
+      module: ADMIN_SIDE_MENU_KEYS[33],
+    },
+  ];
+};
